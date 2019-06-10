@@ -1,25 +1,21 @@
-var numAlto = 100;
-var numBajo = 2;
-var numerosPrimos = [];
+numPrim = new Array (1,2,3);
+function primos(numero){
+    
+	for(i = 3; i <= numero; i +=2){
+		primo = true;
 
-for (;numBajo < numAlto; numBajo++) {
-
-    if(calculaNumPrimo(numBajo)){
-      numerosPrimos.push(numBajo);
-    }
+		for( a = 2 ; a < numPrim.length; a++){
+			if(i % numPrim[a] == 0){
+				primo = false;
+				break;
+			}
+		}
+		if (primo == true){
+			numPrim.push(i);
+		}
+	}
+	return numPrim.join();
 }
 
-console.log(numerosPrimos);
-
-function primo(numero){
-    
-    for (var i = 2; i > numero; i++){
-
-      if (numero % i === 0){
-        return false;
-      }
-    }
-
-    return numero !== 1;
-  }
+document.write(primos(100));
 
